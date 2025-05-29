@@ -1,0 +1,49 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+p{
+   color: green; 
+}
+
+
+p{
+    color: rgba(197, 63, 63, 0.534);
+    font-size: 2rem;
+    line-height: 1.6;
+}
+.text-color{
+    color: rgb(17, 17, 17);
+}
+p.text-color{
+    color: rgb(9, 10, 10);
+}
+h1.text-color{
+    color: blueviolet;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 100px;
+}
+.prog{
+   width: 20%; 
+   display: block;
+   margin-bottom: 10px; 
+}
+.local-prog{
+    width: 500px;
+    display: block;
+    margin-bottom: 10px;
+}
+.forest{
+    width: 100%;
+}
+body{
+    background-image: url(./bavarian-forest-3385966.jpg);
+  
+    background-position: 0%;
+    
+}
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+}

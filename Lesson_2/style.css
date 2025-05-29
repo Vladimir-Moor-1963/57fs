@@ -1,0 +1,32 @@
+
+*{
+    font-family: Impact,sans-serif;
+}
+h1 {
+  text-align: center;
+  color: orangered;
+}
+p{
+    color: rgb(30, 0, 139);
+    font-style: italic;
+}
+.bold-underlind{
+    font-weight:bold ;
+    text-decoration: underline;
+}
+.blue-text{
+    color: rgb(59, 153, 51);
+}
+p>span{
+    font-size: 28px;
+    
+}
+body{
+    background-color: rgb(240, 255, 246);
+}
+h3,h4{
+    color: green;
+}
+.img-prior{
+    width: 400px;
+}
