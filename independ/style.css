@@ -1,0 +1,78 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: rgb(223, 231, 231);
+}
+.gaz div{
+    width: 400px;
+    height: 400px;
+    background-color: antiquewhite;
+    margin: 10px;
+    outline: 1px solid black;
+    background-image: url(https://www.avtogaz.ru/upload/resize_cache/iblock/ec6/263_160_1/oxgqqsb01xxce4808xswsn9xmwm0ubbs.webp);
+    background-size: 80%;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: .9s;
+    
+
+
+}
+
+.gaz{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    position: relative;
+}
+div.volga{
+    background-image: url(https://automotive-heritage.com/upload/gaz_21_6.jpeg);
+}
+div.uaz{
+    background-image: url(https://www.cars-directory.net/pics_specs/car/uaz/469/2321/2_big.jpg);
+}
+div.zaz{
+    background-image: url(https://fb.ru/misc/i/gallery/31247/1228906.jpg);
+}
+.gaz div:hover{
+    background-size: 120%;
+    background-position: right 110% top 30%;
+    outline-color: red;
+    outline-width: 5px;
+    
+
+}
+.gaz div a.descr {
+    position: relative;
+    display: inline-block;
+    color: blue;
+    text-decoration: none;
+    border: 2px solid blue;
+    padding: 10px;
+    border-radius: 4px;
+    opacity: 0;
+   top: 300px;
+   left: 20px;
+   transition: 1s;
+}
+.gaz div h2{
+    position: relative;
+    top: 20px;
+    left: 20px;
+    color: blueviolet;
+    transition: color 0.3s ease;
+}
+.gaz div:hover h2{
+    color: brown;
+}
+.gaz div:hover .descr{
+    opacity: 1;
+
+}
+.gaz div .descr:hover{
+    background-color: blue;
+    color:white;
+}
