@@ -11,6 +11,10 @@ h1 {
 h3 {
   margin-top: 0;
 }
+ul span {
+    color: rgb(240, 162, 6);
+  font-weight: bold;
+}
 header {
   width: 100%;
   background-color: rgb(240, 162, 6);
