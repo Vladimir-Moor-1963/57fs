@@ -1,0 +1,69 @@
+body {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  background-color: antiquewhite;
+}
+.movie {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.movie__poster {
+  display: block;
+  max-width: 400px;
+}
+.movie-rating {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background-color: rgb(59, 178, 58);
+  color: white;
+  font-weight: bold;
+  font-family: sans-serif;
+  padding: 8px 12px;
+  border-radius: 8px;
+}
+.movie1 {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.movie__poster1 {
+  display: block;
+  max-width: 400px;
+}
+.movie-rating1 {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background-color: rgb(59, 178, 58);
+  color: white;
+  font-weight: bold;
+  font-family: sans-serif;
+  padding: 8px 12px;
+  border-radius: 8px;
+}
+.movie-card{
+    position: absolute;
+    bottom: 20px;
+    background-color: rgb(255, 86, 0);
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 1s ease;
+
+}
+.movie-card:hover {
+    background-color: rgb(4, 251, 127);
+    
+}
