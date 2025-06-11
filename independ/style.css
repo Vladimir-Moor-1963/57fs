@@ -51,7 +51,8 @@ div.zaz{
     outline-color: green;
     outline-width: 5px;
     box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.5);
-    transform: rotateX(10deg);
+    transform: rotateX(20deg);
+    transform: translateY(-10px);
     filter: brightness(1.05);
     
     
