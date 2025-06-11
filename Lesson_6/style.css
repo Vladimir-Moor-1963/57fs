@@ -1,0 +1,108 @@
+*{
+    font-family: 'Trebuchet MS', sans-serif;
+    box-sizing: border-box;
+}
+.container-grid{
+    display: grid;
+    gap: 5px;
+    /* grid-template-columns: 100px 200px 30px 300px; */
+    /* grid-template-columns: repeat(4, 200px); */
+    /* grid-template-columns: 59% 10% 15% 40%; */
+    /* grid-template-columns: 6fr 2fr 1fr 3fr; */
+    grid-template-columns: repeat(4, 1fr);
+}
+.container-item{
+    background-color: greenyellow;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+}
+.container-grid-minmax{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-auto-rows: 80px;
+    gap: 5px;
+}
+.crig-item-adapt{
+    background-color: lightpink;
+}
+.grid-item-pic{
+    border-radius: 10px;
+    color: white;
+    background-image: url(https://images.wallpaperscraft.ru/image/single/zvezdnoe_nebo_noch_gory_118791_3840x2160.jpg);
+    background-size: cover;
+}
+.grid-item-pic2{
+    border-radius: 10px;
+    color: white;
+   background-image: url(lesnoi-znoi-v-lucah-solnca.jpg);
+    background-size: cover;
+}
+.fiex-aitem{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(54, 51, 44);
+    color: white;
+    font-size: 14px;
+    padding: 10px;
+    border-radius: 5px;
+
+}
+.crig-item-adapt,
+.container-item,
+.heder,
+.footer,
+.content,
+.nav,
+.planet{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container-grid-area{
+    grid-auto-rows: 150px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 2fr 2fr 1fr;
+    grid-template-areas: 
+    "header header header nav"
+    "content content  sun nav"
+    "content content 🌍 nav"
+    "footer footer footer footer";
+
+}
+.planet{
+    
+    background-image: url(https://kvant.space/default/files/styles/news_photo/public/24edbdu-960.jpg);
+    grid-area: 🌍;
+    font-size: 40px;
+}
+.heder{
+    background-color: #f5b82e;
+    grid-area: header;
+    
+}
+.footer{
+    background-color: #57b8ff;
+    grid-area: footer;
+    
+}
+.content{
+    background-color: #09814a;
+    color: white;
+    grid-area: content;
+    
+}
+.nav{
+    background-color: #37505c;
+    color: white;
+    grid-area: nav;
+    
+}
+.sun{
+    background-image: url('https://www.worldatlas.com/r/w1200/upload/50/d4/a6/shutterstock-84203080.jpg');
+    background-size: cover;
+    background-position: center;
+}
