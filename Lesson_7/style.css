@@ -1,0 +1,137 @@
+* {
+  box-sizing: border-box;
+  /* font-family: Geneva, Tahoma, sans-serif; */
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+}
+h1 {
+  font-family: "UnifrakturCook", cursive;
+  font-weight: 700;
+  font-style: normal;
+}
+
+body {
+  /* ! делаем sticky footer */
+  margin: 0;
+  padding: 0;
+  background-color: lightblue;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+header {
+  height: 100px;
+  background-color: orange;
+  color: white;
+  position: sticky;
+  top: 0;
+}
+
+footer {
+  height: 50px;
+  background-color: darkgrey;
+  color: white;
+}
+main {
+  padding: 10px 50px;
+  /* ! растягиваем main по размеру body */
+  flex: 1;
+}
+footer,
+header {
+  padding: 10px 50px;
+  display: flex;
+  align-items: center;
+  font-size: 22px;
+}
+header {
+  justify-content: space-between;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+}
+nav i:hover {
+  color: yellow;
+}
+nav span:hover {
+  text-decoration: underline;
+}
+.burger-menu {
+  font-size: 35px;
+  display: none;
+}
+@media (max-width: 820px) {
+  header {
+    background-color: orangered;
+  }
+  nav i:hover {
+    color: green;
+  }
+  .burger-menu {
+    font-size: 35px;
+    display: none;
+  }
+  .gallry {
+    display: grid;
+    gap: 20px;
+    padding: 20px 0;
+  }
+  .gallery-item {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    padding-bottom: 15px;
+  }
+  .gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-bottom: 1px solid #ddd;
+  }
+  .gallery-item h3 {
+    margin: 15px 10px 5px;
+    color: #333;
+    font-size: 1.2em;
+  }
+  .gallery-item p {
+    margin: 0 10px;
+    color: #666;
+    font-size: 0.9em;
+  }
+
+  /* прячем навигацию */
+
+  @media (max-width: 430px) {
+    header {
+      background-color: blue;
+      height: 70px;
+      font-size: 18px;
+    }
+    header span {
+      font-size: 18px;
+    }
+    nav i:hover {
+      color: red;
+    }
+    /* прячем навигацию */
+    nav {
+      display: none;
+    }
+    .burger-menu {
+      display: block;
+    }
+    /* показываем навигацию при клике на бургер */
+
+    nav a {
+      padding: 10px;
+      border-bottom: 1px solid white;
+    }
+  }
+}
