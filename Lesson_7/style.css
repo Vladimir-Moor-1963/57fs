@@ -12,6 +12,16 @@ h1 {
   font-weight: 700;
   font-style: normal;
 }
+h3 {
+  font-family: "UnifrakturCook", cursive;
+  font-weight: 700;
+  font-style: normal;
+}
+p{
+     font-family: "UnifrakturCook", cursive;
+  font-weight: 700;
+  font-style: normal;
+}
 
 body {
   /* ! делаем sticky footer */
