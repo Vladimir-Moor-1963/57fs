@@ -1,12 +1,4 @@
-* {
-  box-sizing: border-box;
-  /* font-family: Geneva, Tahoma, sans-serif; */
-  font-family: "Roboto", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 500;
-  font-style: normal;
-  font-variation-settings: "wdth" 100;
-}
+
 h1 {
   font-family: "UnifrakturCook", cursive;
   font-weight: 700;
@@ -39,6 +31,25 @@ header {
   position: sticky;
   top: 0;
 }
+ .gallery-item {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    padding-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+  }
+ .gallry {
+    display: grid;
+     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px 0;
+  }
+ 
+
+
 
 footer {
   height: 50px;
@@ -86,24 +97,14 @@ nav span:hover {
     font-size: 35px;
     display: none;
   }
-  .gallry {
-    display: grid;
-    gap: 20px;
-    padding: 20px 0;
-  }
-  .gallery-item {
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    text-align: center;
-    padding-bottom: 15px;
-  }
+ 
   .gallery-item img {
     width: 100%;
     height: auto;
     display: block;
     border-bottom: 1px solid #ddd;
+    object-fit: cover;
+    max-height: 200px;
   }
   .gallery-item h3 {
     margin: 15px 10px 5px;
@@ -111,9 +112,18 @@ nav span:hover {
     font-size: 1.2em;
   }
   .gallery-item p {
-    margin: 0 10px;
-    color: #666;
-    font-size: 0.9em;
+     background-color: #e0f2f7;
+  padding: 12px;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: bold;
+  color: #333;
+  transition: transform 0.3s, ease-in-out 0.3s;
+  flex-grow: 1;
+  margin: 0 10px 10px;
+  }
+  .gallery-item p:hover{
+    transform: translateY(-5);
   }
 
   /* прячем навигацию */
