@@ -1,0 +1,271 @@
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  background-color: white;
+  color: #333;
+}
+
+
+
+
+
+h1 {
+  color:white;
+  text-align: center;
+  margin-bottom: 20px;
+}
+h2 {
+  color: #0056b3;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 30px;
+}
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+.container {
+  /* max-width: 960px; */
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+header {
+  background-image: url("https://ichef.bbci.co.uk/news/640/amz/worldservice/live/assets/images/2016/03/03/160303142128_photo_les_horribles_cernettes_624x351_cernblakepattersonflickrccby2.0_nocredit.jpg");
+  padding: 45px 0;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+.profile-photo{
+    display: block; 
+    width: 200px; 
+    height: 200px; 
+    border-radius: 50%; 
+    object-fit: cover; 
+    margin: 20px auto; 
+    border: 3px solid #0056b3; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.intro-text {
+  font-family: "DM Serif Text", serif;
+  font-weight: 400;
+  font-style: normal;
+  padding: 20px;
+  font-size: x-large;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+}
+/* header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+} */
+
+main.container {
+  margin-top: 150px;
+  margin-bottom: 20px;
+  padding-top: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding-bottom: 20px;
+}
+
+section {
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eee;
+}
+section:last-child {
+  border-bottom: none;
+}
+ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+li {
+  margin-bottom: 10px;
+}
+i{
+    margin-bottom: 20px;
+}
+footer {
+  background-color: #fff;
+  padding: 20px 0;
+  text-align: center;
+  font-size: 0.9em;
+  color: #666;
+  margin-bottom: 40px;
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.05);
+}
+
+
+
+
+@media(max-width: 768px){
+    header{
+        padding: 25px 0;
+    }
+    header h1{
+        font-size: 1.8em;
+        margin-bottom: 10px;
+    }
+    main.container{
+        margin-top: 130px;
+        padding: 15px;
+    }
+    p.intro-text{
+        font-size: 1em;
+        margin-bottom: 20px;
+    }
+    h2{
+        font-size: 1.5em;
+    }
+    .profile-photo{
+        width: 120px;
+        height: 120px;
+    }
+    section{
+        margin-bottom: 20px;
+        padding-bottom: 15px;
+    }
+    
+    ul{
+        padding-left: 1.5px;
+    }
+    li{
+        margin-bottom: 8px;
+    }
+    footer{
+        padding: 15px;
+        padding-bottom: 30px;
+    }
+}
+@media(max-width: 480px){
+    header {
+        padding: 10px 0; /* Еще меньше padding для хедера */
+    }
+      header h1 {
+        font-size: 1.5em; /* Еще уменьшаем H1 */
+    }
+    main.container {
+        margin-top: 100px; /* Еще уменьшаем отступ main */
+        padding: 10px; /* Еще уменьшаем внутренние отступы main */
+    }
+    p.intro-text {
+        font-size: 0.9em; /* Еще уменьшаем размер вступительного текста */
+    }
+     h2 {
+        font-size: 1.3em; /* Еще уменьшаем H2 */
+    }
+    .profile-photo {
+        width: 100px; /* Еще уменьшаем размер фото */
+        height: 100px;
+    }
+     /* Для очень маленьких экранов можно скрыть тени, чтобы было чище */
+    main.container, header, footer {
+        box-shadow: none;
+    }
+     .container {
+        padding: 0 10px; /* Уменьшаем горизонтальные отступы для узких экранов */
+    }
+}
+.contact-info p{
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    font-size: 1.1em;
+    color: #555;
+}
+.contact-info i{
+    margin-right: 15px;
+    color: #007bff;
+    font-size: 1.0em;
+    min-width: 25px;
+    text-align: center
+}
+.contact-info a{
+    color: #007bff;
+   
+    font-weight: bold;
+}
+.contact-info a:hover i{
+    text-decoration: underline;
+    color: #0056b3;
+
+}
+.contact-info a:hover{
+    color: #0056b3;
+}
+#services ul li{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 15px;
+    position: relative;
+}
+#services ul li i{
+    margin-right: 15px;
+    color: #007bff;
+    font-size: 1.5em;
+    min-width: 25px;
+    text-align: center;
+}
+.service-photo{
+    display: block;
+    max-width: 50px;
+    height: auto;
+    margin: 10px 0 0 calc(25px+15px+5px);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+    position: absolute;
+    left: 1150px;
+    bottom: 0;
+}
+
+
+#services ul li a:hover .service-photo{
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+@media(max-width: 768px){
+    .service-photo{
+        max-width: 100px;
+        margin-left: 30px;
+   
+}
+}
+@media(max-width: 480px){
+    .service-photo{
+        max-width: 80px;
+        margin-left: 20px;
+    }
+}
+@media(max-width: 400px){
+    .service-photo{
+        max-width: 60px;
+        margin-left: 10px;
+    }
+}
+
+
+
+
+
+
+
