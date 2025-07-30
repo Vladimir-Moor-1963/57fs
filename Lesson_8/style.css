@@ -12,12 +12,9 @@ a{
     padding: 10px 20px;
     border-bottom: 1px solid #ddd;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
-.header_row-portabelbrand{
-
+    flex-direction: column;
+    align-items: flex-start;
+    /* gap: 10px; */
 }
 .logo img{
     height: 50px;
@@ -25,18 +22,65 @@ a{
     vertical-align: middle;
 }
 .header_row-pageheder {
-
+    width: 1900px;
+    height: 35px;
+     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
 }
-.textlogo .institution {
+
+.textlogo .institution{
     display: block;
     font-size: 24px;
     font-weight: bold;
     color: #000;
 }
-textlogo .title{
+.textlogo .title{
     display: block;
     font-size: 14px;
     color: #666;
+}
+.service-button,.service-button-overlay,.service-button-overlay-menu{
+    font-size: 24px;
+    cursor: pointer;
+}
+.header_row-portabelbrand{
+    width: 1900px;
+    height: 35px; 
+    padding-bottom: 25px; 
+    border-bottom: 1px solid #e0e0e0; 
+    margin-bottom: 15px; 
+}
+   
+   
+
+
+.pageheder_services{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.logo img{
+    height: 50px;
+    width: auto;
+    vertical-align: middle;
+}
+
+/* .textlogo .institution {
+    display: block;
+    font-size: 24px;
+    font-weight: bold;
+    color: #000;
+} */
+.textlogo .title{
+    display: block;
+    font-size: 14px;
+    color: #666;
+   } 
+    .header_row-pageheder{
+        text-align: left;
+    }
     @media(max-width: 600px){
         #header{
             flex-direction: column;
@@ -44,7 +88,34 @@ textlogo .title{
             gap: 15px;
         }
     }
-    .header_row-pageheder{
-        text-align: left;
+    /* .main{
+        max-width: 1200px;
+        margin: 0 auto;
+    } */
+    .hero-image img{
+        width: 1900px;
+        height: 500px;
+        /* height: auto; */
+        display: block;
+        object-fit: cover;
+        transition: transform 0.3s ease;
     }
-}
+    .photo-gallery{
+       max-width: 1200px;
+       margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+        padding: 20px;
+    }
+    .gallery-item{
+        border-radius: 8px;
+        overflow: hidden;
+        aspect-ratio: 1/1;
+        transition: transform 0,3s ease;
+    }
+    
+    .gallery-item img:hover{
+        transform: scale(1.05);
+        cursor: pointer;
+    }

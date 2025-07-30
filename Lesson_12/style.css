@@ -1,0 +1,46 @@
+button{
+  border: none;
+  background-color: aqua;
+  color: #000;
+  border-radius: 5px;
+  font-size: 15px;
+  padding: 5px 8px;
+  cursor: pointer;
+}
+button:hover{
+  background-color: #000;
+  color: #fff;
+}
+span{
+  font-size: 25px;
+}
+div{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+h1{
+  cursor: pointer;
+}
+h1:hover{
+  color: palegoldenrod;
+  text-decoration: underline;
+}
+.heading{
+  color: orangered;
+  font-style: italic;
+}
+.btn-create{
+  margin-top: 5px;
+  background-color: cornflowerblue;
+}
+.btn-create:hover{
+  background-color: #000;
+  color: #fff;
+}
+img{
+  margin-top: 10px;
+  height: 250px;
+  
+  
+}
