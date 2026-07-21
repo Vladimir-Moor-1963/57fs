@@ -48,7 +48,7 @@ div.zaz{
 .gaz div:hover{
     background-size: 120%;
     background-position: right 110% top 30%;
-    outline-color: green;
+    outline-color: rgb(24, 27, 24);
     outline-width: 5px;
     box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.5);
     transform: rotateX(20deg);
@@ -84,7 +84,7 @@ div.zaz{
     font-size: 20px;
     margin-top: 19px;
     margin-bottom: 10px;
-    color:greenyellow;
+    color:rgb(136, 168, 149);
 }
 .gaz div:hover h2{
     color: brown;

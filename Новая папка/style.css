@@ -51,9 +51,9 @@ input:hover{
   opacity: 1;
 }
 div:hover .oscar,
-div:hover .oscar-desk,
+div:hover .oscar-desc,
 div:hover .play,
-div:hover .play-desk{
+div:hover .play-desc{
   opacity: 1;
 }
  

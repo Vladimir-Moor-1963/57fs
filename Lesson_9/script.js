@@ -1,33 +1,33 @@
-console.log('hello.JS!') // вывод в консоль
+console.log("hello.JS!"); // вывод в консоль
 // объявление переменных
 let hello;
-console.log(hello)
-hello = 'Hello, js';
-hello = 'Hello fur alle sprache 🕵️‍♀️'
-console.log(hello)
+console.log(hello);
+hello = "Hello, js";
+hello = "Hello fur alle sprache 🕵️‍♀️";
+console.log(hello);
 
-const language = 'JavaScript';
+const language = "JavaScript";
 // language = 'Python' // нельзя переприсвоить константу
 // ! примитивные типы данных в js
 // * 1. string - строка
 
 // "Earth", 'Earth', `Earth`
 // три валидных способа для указания строк
-let planet = 'Earth'
+let planet = "Earth";
 let greeting = "We are from planet " + planet;
-console.log(greeting)
-let planetNumber = 3
+console.log(greeting);
+let planetNumber = 3;
 // шаблонные строки это аналог конкатенации
 // пишется в косых кавычках (backticks)
 let greeting1 = `Мы живем на планете ${planet}. Это ${planetNumber} планета от солнца`;
-console.log(greeting1)
+console.log(greeting1);
 // * 2. number - число
-let n1 =42;
+let n1 = 42;
 let n2 = 3.14;
 let n3 = -40;
 // самое большое число в js
 let lastSafeInteger = Number.MAX_SAFE_INTEGER;
-console.log(lastSafeInteger)
+console.log(lastSafeInteger);
 // * 3. boolean - булево значение
 
 let isStudent = true;
@@ -35,7 +35,7 @@ let isBackend = false;
 
 // пример тернарного оператора - компактного условия
 let whatToDo = isStudent ? "выполняй задания и учись" : "не хочешь поучиться?";
-console.log(whatToDo)
+console.log(whatToDo);
 // * 4. undefined - неопределенное значение
 // не явное указание на отсутствие значения
 let object; // здесь будет undefined
@@ -43,13 +43,13 @@ let object; // здесь будет undefined
 // явное указание на отсутствие значения
 
 let user = null;
-console.log(user)
+console.log(user);
 // * 6. bigint - большое число (не для frontend)
 // для операций с числами больше чем Number.MAX_SAFE_INTEGER;
 
 let bigNumber = 1000n;
 let bigResult = bigNumber + 2000n;
-console.log(bigResult)
+console.log(bigResult);
 // * 7. symbol - символ (не для frontend)
 // уникальное значение используемое в объектах
 
@@ -106,7 +106,6 @@ let random = Math.random();
 // * случайное число от 1 до 100
 // округляем до целых чисел с Math.floor
 let random1 = Math.floor(Math.random() * 100) + 1;
-
 
 // ! операторы сравнения
 

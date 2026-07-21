@@ -17,7 +17,7 @@ p{
 
 body {
   /* ! делаем sticky footer */
-  margin: 0;
+  margin: 0px;
   padding: 0;
   background-color: lightblue;
   display: flex;
@@ -25,13 +25,17 @@ body {
   min-height: 100vh;
 }
 header {
+  
   height: 100px;
   background-color: orange;
   color: white;
   position: sticky;
   top: 0;
 }
+
  .gallery-item {
+
+ margin: 10px;
     background-color: #f9f9f9;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -41,9 +45,11 @@ header {
     display: flex;
     flex-direction: column;
   }
- .gallry {
-    display: grid;
-     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+ .gallery {
+  margin: 150px ;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 20px;
     padding: 20px 0;
   }

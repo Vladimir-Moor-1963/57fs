@@ -3,12 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oi&display=swap" rel="stylesheet">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css" />
     <link
       rel="stylesheet"
@@ -23,10 +24,88 @@
     />
 
     <title>Моя Визитка-Учебный прект</title>
+    <title>Моя Визитка-Учебный проект</title>
+
+    <style>
+        /* Общие настройки для комфорта глаз */
+        body {
+            font-family: 'DM Serif Text', serif;
+            font-size: 20px;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f7f6;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Шапка */
+        header {
+        background-image: url('images/images.jpg'); /* Убедись, что путь к картинке верный! У тебя в HTML было пусто, я подставил твой файл 'images.jpg' */
+            background-size: cover;       /* Картинка растягивается, чтобы закрыть весь блок, не искажаясь */
+            background-position: center;   /* Центрируем картинку по вертикали и горизонтали */
+            background-repeat: no-repeat;
+            background-color: #2c3e50;
+            color: white;
+
+            padding: 10px -2px;
+            color: white;
+            text-align: center;
+            border-bottom: 8px solid #27ae60;
+        }
+
+        /* Карточки услуг (делаем их красивыми блоками) */
+        #services ul {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 0;
+            list-style: none;
+        }
+
+        #services li {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            flex: 1 1 350px;
+            border-left: 5px solid #27ae60;
+        }
+
+        /* Фотографии услуг */
+        .service-photo {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-top: 15px;
+            display: block;
+        }
+
+        /* Иконки FontAwesome */
+        .fas, .fab {
+            color: #27ae60;
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+
+        /* Контакты */
+        .contact-info p {
+            background: #ffffff;
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+        }
+    </style>
   </head>
   <body>
     <header>
-      <div class="container"><h1>Цифровая помощь Старшему поколению</h1></div>
+      <div class="header-image"></div>
+      <h1>Цифровая помощь Старшему поколению</h1>
+      <!-- <div class="container"><h1>Цифровая помощь Старшему поколению</h1></div> -->
     </header>
     <main class="container">
       <p class="intro-text">
@@ -51,32 +130,65 @@
       <section id="services">
         <h2>Что я предлагаю:</h2>
         <ul>
-          <li><i class="fas fa-mobile-alt"></i>
+          <li>
+            <i class="fas fa-mobile-alt"></i>
             <strong>Настройка смартфонов и планшетов:</strong> отбазового
             использования до установки полезных
             приложений(мессенджеры,банковские приложения)
-            <a href="elderly-help-video.mp4" target="_blank"><img src="images1.jpg" alt="Настройка смартфона" class="service-photo"></a>
+            <a href="elderly-help-video.mp4" target="_blank"strong
+              >Видео-инструкция по настройке смартфона</strong
+              ><img
+                src="images1.jpg"
+                alt="Настройка смартфона"
+                class="service-photo"
+            /></a>
           </li>
-          <li><i class="fas fa-laptop"></i>
+          <li>
+            <i class="fas fa-laptop"></i>
             <strong>Освоение компьютеров и ноутбуков:</strong> основы работы с
             оперционной системой,браузером,электронной почтой.
-            <a href="frau-video.mp4" target="_blank"><img src="images2.jpg" alt="Работа с ноутбуком" class="service-photo"></a>
+            <a href="frau-video.mp4" target="_blank"
+              ><img
+                src="images2.jpg"
+                alt="Работа с ноутбуком"
+                class="service-photo"
+            /></a>
           </li>
-          <li><i class="fas fa-wifi"></i>
-            <strong>Подключение и настройка интернет-оборудования:</strong>Wi-Fi роутеры, модемы
-            <a href="https://via.placeholder.com/1200x800?text=Full+Photo+WiFi" target="_blank"><img src="images3.jpg" alt="Подключение Wi-Fi" class="service-photo"></a>
-            
+          <li>
+            <i class="fas fa-wifi"></i>
+            <strong>Подключение и настройка интернет-оборудования:</strong>Wi-Fi
+            роутеры, модемы
+            <a
+              href="https://via.placeholder.com/1200x800?text=Full+Photo+WiFi"
+              target="_blank"
+              ><img
+                src="images3.jpg"
+                alt="Подключение Wi-Fi"
+                class="service-photo"
+            /></a>
           </li>
-          <li><i class="fas fa-comments"></i>
+          <li>
+            <i class="fas fa-comments"></i>
             <strong>Индивидуальные консультации:</strong> ответы на любые ваши
-            вопросы в удобном формате.<a href="https://via.placeholder.com/1200x800?text=Full+Photo+Consultation" target="_blank">
-                 <img src="images4.jpg" alt="Индивидуальные консультации" class="service-photo">
+            вопросы в удобном формате.<a
+              href="https://via.placeholder.com/1200x800?text=Full+Photo+Consultation"
+              target="_blank"
+            >
+              <img
+                src="images4.jpg"
+                alt="Индивидуальные консультации"
+                class="service-photo"
+              />
             </a>
           </li>
           <li>
-            <i class="fas fa-handshake-angle"></i><strong>Выезд на дом для консультаций, и помощи в подключения устройств: </strong>В удобное для вас время<a href="hern-video.mp4" target="_blank">
-                <img src="images5.jpg" alt="Выезд на дом" class="service-photo">
-            </a></li>
+            <i class="fas fa-handshake-angle"></i
+            ><strong
+              >Выезд на дом для консультаций, и помощи в подключения устройств: </strong
+            >В удобное для вас время<a href="hern-video.mp4" target="_blank">
+              <img src="images5.jpg" alt="Выезд на дом" class="service-photo" />
+            </a>
+          </li>
         </ul>
       </section>
       <section id="contact">
@@ -84,29 +196,32 @@
         <p>
           Если вам или вашим близким нужна помощь, не стесняйтесь обращаться!
         </p>
-        <div class="contact-info"><p><i class="fas fa-phone"></i>Телефон:<a href="tel:+1234567890"
-          >+1 (234) 567-890</a
-        ></p>
-        <p>
-          <i class="fas fa-envelope"
-            >Email:
-            <a href="mailto:info@yourdomain.com">info@yourdomain.com</a></i
-          >
-        </p>
-        <p class="fab fa-whatsapp">
-          <i
-            >WhatsApp:
-            <a href="https://wa.me/1234567890">Написать в WhatsApp</a></i
-          >
-        </p>
-        <p>
-          <i class="fab fa-telegram"
-            ><a href="https://t.me/yourtelegramusername"
-              >Написать в Telegram</a
-            ></i
-          >
-        </p></div>
-        
+        <div class="contact-info">
+          <p>
+            <i class="fas fa-phone"></i>Телефон:<a href="tel:+1234567890"
+              >+1 (234) 567-890</a
+            >
+          </p>
+          <p>
+            <i class="fas fa-envelope"
+              >Email:
+              <a href="mailto:info@yourdomain.com">info@yourdomain.com</a></i
+            >
+          </p>
+          <p class="fab fa-whatsapp">
+            <i
+              >WhatsApp:
+              <a href="https://wa.me/1234567890">Написать в WhatsApp</a></i
+            >
+          </p>
+          <p>
+            <i class="fab fa-telegram"
+              ><a href="https://t.me/yourtelegramusername"
+                >Написать в Telegram</a
+              ></i
+            >
+          </p>
+        </div>
       </section>
     </main>
     <footer>
