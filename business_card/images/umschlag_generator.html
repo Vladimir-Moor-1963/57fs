@@ -1,0 +1,439 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Универсальный генератор конвертов</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f3f4f6;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .controls {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        width: 100%;
+        max-width: 600px;
+        margin-bottom: 20px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .field {
+        margin-bottom: 12px;
+      }
+
+      .field label {
+        display: block;
+        font-size: 0.85rem;
+        font-weight: bold;
+        margin-bottom: 4px;
+      }
+
+      .field input,
+      .field select {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 0.9rem;
+      }
+
+      .btn-group-inline {
+        display: flex;
+        gap: 10px;
+        margin-top: 5px;
+      }
+
+      .btn {
+        width: 100%;
+        padding: 10px;
+        background: #2563eb;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        font-weight: bold;
+        cursor: pointer;
+        margin-top: 10px;
+      }
+
+      .btn-secondary {
+        background: #4b5563;
+      }
+
+      .btn-danger {
+        background: #dc2626;
+        width: auto;
+        padding: 8px 12px;
+        margin-top: 0;
+      }
+
+      /* ВЕРТИКАЛЬНЫЙ КОНВЕРТ */
+      .envelope-vertical {
+        width: 110mm;
+        height: 220mm;
+        background: white;
+        border: 1px solid #ccc;
+        position: relative;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        writing-mode: vertical-rl;
+        text-orientation: mixed;
+        transition:
+          width 0.2s,
+          height 0.2s;
+      }
+
+      /* Блок отправителя */
+      .absender {
+        position: absolute;
+        top: 10mm;
+        right: 10mm;
+        font-size: 9pt;
+        line-height: 1.3;
+      }
+
+      /* Блок получателя */
+      .empfaenger {
+        position: absolute;
+        bottom: 20mm;
+        left: 15mm;
+        font-size: 11pt;
+        line-height: 1.4;
+      }
+
+      .empfaenger .bold {
+        font-weight: bold;
+      }
+
+      /* НАСТРОЙКИ ПЕЧАТИ */
+      @media print {
+        body {
+          background: white;
+          padding: 0;
+          margin: 0;
+        }
+
+        .controls {
+          display: none !important;
+        }
+
+        .preview-container {
+          width: 100%;
+          display: flex;
+          justify-content: center;
+        }
+
+        .envelope-vertical {
+          border: none;
+          box-shadow: none;
+        }
+
+        @page {
+          size: A4 portrait;
+          margin: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="controls">
+      <h2>Печать конвертов (Вертикальная подача)</h2>
+
+      <!-- Переключатель форматов -->
+      <div class="field">
+        <label>Формат конверта</label>
+        <select id="formatSelect" onchange="changeFormat()">
+          <option value="DL">DIN DL (110 x 220 мм) — Евроконверт</option>
+          <option value="C5">DIN C5 (162 x 229 мм) — Под A5</option>
+          <option value="C6">DIN C6 (114 x 162 мм) — Маленький</option>
+        </select>
+      </div>
+
+      <!-- Раздел Отправителя -->
+      <h3>Отправитель (Absender)</h3>
+      <div class="field">
+        <label>Name</label>
+        <input
+          type="text"
+          id="absName"
+          value="Vladimir Moor"
+          oninput="update()"
+        />
+      </div>
+      <div class="field">
+        <label>Straße</label>
+        <input
+          type="text"
+          id="absStreet"
+          value="Bismarckstraße 69"
+          oninput="update()"
+        />
+      </div>
+      <div class="field">
+        <label>PLZ / Ort</label>
+        <input type="text" id="absCity" value="95028 Hof" oninput="update()" />
+      </div>
+      <button class="btn btn-secondary" onclick="saveSenderAddress()">
+        Сохранить мой адрес как основной
+      </button>
+
+      <hr style="margin: 15px 0; border: 0; border-top: 1px solid #ddd" />
+
+      <!-- Раздел Получателя -->
+      <h3>Получатель (Empfänger)</h3>
+
+      <div class="field">
+        <label>Выберите сохраненного получателя:</label>
+        <div style="display: flex; gap: 8px">
+          <select id="savedEmpSelect" onchange="loadSelectedEmpfaenger()">
+            <option value="">-- Новый получатель --</option>
+          </select>
+          <button
+            class="btn btn-danger"
+            type="button"
+            onclick="deleteSelectedEmpfaenger()"
+            title="Удалить выбранного получателя"
+          >
+            ✕
+          </button>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Name</label>
+        <input
+          type="text"
+          id="empName"
+          placeholder="Имя / Организация"
+          oninput="update()"
+        />
+      </div>
+      <div class="field">
+        <label>Straße</label>
+        <input
+          type="text"
+          id="empStreet"
+          placeholder="Улица и дом"
+          oninput="update()"
+        />
+      </div>
+      <div class="field">
+        <label>PLZ / Ort</label>
+        <input
+          type="text"
+          id="empCity"
+          placeholder="Индекс и город"
+          oninput="update()"
+        />
+      </div>
+
+      <button class="btn btn-secondary" onclick="saveCurrentEmpfaenger()">
+        Сохранить этого получателя в базу
+      </button>
+
+      <button
+        class="btn"
+        style="margin-top: 20px; font-size: 1.1rem"
+        onclick="window.print()"
+      >
+        Печать
+      </button>
+    </div>
+
+    <div class="preview-container">
+      <div class="envelope-vertical" id="envelope">
+        <div class="absender">
+          <div id="pAbsName">Vladimir Moor</div>
+          <div id="pAbsStreet">Bismarckstraße 69</div>
+          <div id="pAbsCity">95028 Hof</div>
+        </div>
+
+        <div class="empfaenger">
+          <div class="bold" id="pEmpName"></div>
+          <div id="pEmpStreet"></div>
+          <div id="pEmpCity"></div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Массив для хранения списка получателей
+      let empfaengerList = [];
+
+      // Обновление предпросмотра
+      function update() {
+        document.getElementById("pAbsName").textContent =
+          document.getElementById("absName").value || " ";
+        document.getElementById("pAbsStreet").textContent =
+          document.getElementById("absStreet").value || " ";
+        document.getElementById("pAbsCity").textContent =
+          document.getElementById("absCity").value || " ";
+
+        document.getElementById("pEmpName").textContent =
+          document.getElementById("empName").value || " ";
+        document.getElementById("pEmpStreet").textContent =
+          document.getElementById("empStreet").value || " ";
+        document.getElementById("pEmpCity").textContent =
+          document.getElementById("empCity").value || " ";
+      }
+
+      // Изменение формата конверта
+      function changeFormat() {
+        const format = document.getElementById("formatSelect").value;
+        const env = document.getElementById("envelope");
+
+        if (format === "DL") {
+          env.style.width = "110mm";
+          env.style.height = "220mm";
+        } else if (format === "C5") {
+          env.style.width = "162mm";
+          env.style.height = "229mm";
+        } else if (format === "C6") {
+          env.style.width = "114mm";
+          env.style.height = "162mm";
+        }
+      }
+
+      // --- РАБОТА С ЛОКАЛЬНОЙ ПАМЯТЬЮ (localStorage) ---
+
+      // Сохранить свой адрес (Absender)
+      function saveSenderAddress() {
+        const sender = {
+          name: document.getElementById("absName").value,
+          street: document.getElementById("absStreet").value,
+          city: document.getElementById("absCity").value,
+        };
+        localStorage.setItem("envelope_default_sender", JSON.stringify(sender));
+        alert("Ваш адрес успешно сохранен!");
+      }
+
+      // Загрузить свой адрес
+      function loadSenderAddress() {
+        const saved = localStorage.getItem("envelope_default_sender");
+        if (saved) {
+          const sender = JSON.parse(saved);
+          document.getElementById("absName").value = sender.name || "";
+          document.getElementById("absStreet").value = sender.street || "";
+          document.getElementById("absCity").value = sender.city || "";
+        }
+      }
+
+      // Сохранить текущего получателя в массив
+      function saveCurrentEmpfaenger() {
+        const name = document.getElementById("empName").value.trim();
+        const street = document.getElementById("empStreet").value.trim();
+        const city = document.getElementById("empCity").value.trim();
+
+        if (!name) {
+          alert("Заполните хотя бы имя получателя.");
+          return;
+        }
+
+        // Проверяем, есть ли уже такой получатель (по имени)
+        const existingIndex = empfaengerList.findIndex(
+          (e) => e.name.toLowerCase() === name.toLowerCase(),
+        );
+        const newEntry = { name, street, city };
+
+        if (existingIndex >= 0) {
+          empfaengerList[existingIndex] = newEntry; // обновляем
+        } else {
+          empfaengerList.push(newEntry); // добавляем нового
+        }
+
+        localStorage.setItem(
+          "envelope_empfaenger_list",
+          JSON.stringify(empfaengerList),
+        );
+        renderEmpfaengerOptions();
+
+        // Выбираем свежесохраненного в списке
+        document.getElementById("savedEmpSelect").value = name;
+        alert("Получатель сохранен в список!");
+      }
+
+      // Отрисовать выпадающий список получателей
+      function renderEmpfaengerOptions() {
+        const select = document.getElementById("savedEmpSelect");
+        select.innerHTML = '<option value="">-- Новый получатель --</option>';
+
+        empfaengerList.forEach((emp) => {
+          const option = document.createElement("option");
+          option.value = emp.name;
+          option.textContent = emp.name;
+          select.appendChild(option);
+        });
+      }
+
+      // Загрузить выбранного из списка получателя
+      function loadSelectedEmpfaenger() {
+        const selectedName = document.getElementById("savedEmpSelect").value;
+        if (!selectedName) {
+          document.getElementById("empName").value = "";
+          document.getElementById("empStreet").value = "";
+          document.getElementById("empCity").value = "";
+          update();
+          return;
+        }
+
+        const emp = empfaengerList.find((e) => e.name === selectedName);
+        if (emp) {
+          document.getElementById("empName").value = emp.name;
+          document.getElementById("empStreet").value = emp.street;
+          document.getElementById("empCity").value = emp.city;
+          update();
+        }
+      }
+
+      // Удалить выбранного получателя из памяти
+      function deleteSelectedEmpfaenger() {
+        const selectedName = document.getElementById("savedEmpSelect").value;
+        if (!selectedName) return;
+
+        if (confirm(`Удалить "${selectedName}" из базы получателей?`)) {
+          empfaengerList = empfaengerList.filter(
+            (e) => e.name !== selectedName,
+          );
+          localStorage.setItem(
+            "envelope_empfaenger_list",
+            JSON.stringify(empfaengerList),
+          );
+
+          document.getElementById("empName").value = "";
+          document.getElementById("empStreet").value = "";
+          document.getElementById("empCity").value = "";
+
+          renderEmpfaengerOptions();
+          update();
+        }
+      }
+
+      // Загрузить список получателей при запуске
+      function loadEmpfaengerList() {
+        const saved = localStorage.getItem("envelope_empfaenger_list");
+        if (saved) {
+          empfaengerList = JSON.parse(saved);
+          renderEmpfaengerOptions();
+        }
+      }
+
+      // Инициализация при открытии страницы
+      window.onload = function () {
+        loadSenderAddress();
+        loadEmpfaengerList();
+        update();
+      };
+    </script>
+  </body>
+</html>
